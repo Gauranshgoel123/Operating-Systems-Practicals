@@ -48,17 +48,14 @@ public class SJF_CPU_Scheduling {
         double totalWaitingTime = 0;
         double totalTurnaroundTime = 0;
 
-        // Print header
-        System.out.printf("%-10s %-15s %-15s %-15s%n", "Process", "Burst Time", "Waiting Time", "Turnaround Time");
-        System.out.println("-------------------------------------------------------------");
-
+        System.out.println("Process\tBurst Time\tWaiting Time\tTurnaround Time");
         for (int i = 0; i < n; i++) {
             totalWaitingTime += waitingTime[i];
             totalTurnaroundTime += turnaroundTime[i];
-            System.out.printf("%-10s %-15d %-15d %-15d%n", processes[i].name, processes[i].burstTime, waitingTime[i], turnaroundTime[i]);
+            System.out.printf("%s\t%d\t\t%d\t\t%d%n", processes[i].name, processes[i].burstTime, waitingTime[i], turnaroundTime[i]);
         }
 
-        System.out.println("-------------------------------------------------------------");
-        System.out.printf("%-10s %-15s %.2f %-15s %.2f%n", "Average", "", totalWaitingTime / n, "Average", totalTurnaroundTime / n);
+        System.out.printf("%nAverage waiting time: %.2f%n", totalWaitingTime / n);
+        System.out.printf("Average turnaround time: %.2f%n", totalTurnaroundTime / n);
     }
 }
